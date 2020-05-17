@@ -1,9 +1,13 @@
-import { createServer } from './src/modules/http/createServer.ts';
-import { watcher } from './src/modules/watcher/watcher.ts';
+import { Http } from './src/modules/Http/http.ts';
+import { Watch } from './src/modules/Watch/watch.ts';
 
 const init = async() => {
-    watcher();
-    await createServer();
+    
+    const watch = new Watch('/Users/blank/Desktop/project/deno');
+    const http = new Http();
+
+    http.create();
+    watch.watcher();
 }
 
 init();
